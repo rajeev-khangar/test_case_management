@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title TestCaseManagementApp
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    %nav.navbar.navbar-expand-sm.bg-dark.navbar-dark
+      %a.navbar-brand{:href => "#"} Logo
+      %ul.navbar-nav
+        %li.nav-item
+          = link_to "Projects", projects_path, class: "nav-link"
+    .container-fluid.mt-4
+      .unobtrusive-flash-container
+        = render 'shared/flash_messages'
+      = yield

@@ -1,0 +1,15 @@
+.row
+  .col-md-12
+    = bootstrap_form_for(@milestone, url: "/milestones/#{@milestone.id}/milestone_cases", method: :post, remote: true, html: {format: "js"}) do |f|
+      = text_field_tag :project_module_id, @project_module.try(:id), class: "d-lg-none"
+      - if @module_test_cases
+        = f.fields_for :milestone_cases do |milestone_case|
+          - module_test_case = ModuleTestCase.find(milestone_case.object.module_test_case_id)
+          = milestone_case.text_field :project_module_id, value: milestone_case.object.project_module_id, class: "d-lg-none", hide_label: true
+          = milestone_case.text_field :module_test_case_id, value: milestone_case.object.module_test_case_id, class: "d-lg-none", hide_label: true
+          = milestone_case.form_group :status, label: { text: module_test_case.title } do
+            %br
+            = milestone_case.radio_button :status, 0, label: "Not tested", checked: true, inline: true
+            = milestone_case.radio_button :status, 1, label: "Success", inline: true
+            = milestone_case.radio_button :status, 2, label: "Failure", inline: true
+        = f.submit "save"

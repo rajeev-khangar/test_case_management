@@ -1,0 +1,21 @@
+.row
+  .col-md-8
+    %h4 Project Module List
+  .col-md-4.text-right
+    = link_to "New module", new_project_project_module_path(@project), remote: true, "data-toggle": "modal", "data-target": "#moduleFormModal", class: "btn btn-success"
+%br
+.row
+  .col-md-12
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th Module Name
+          %th Actions
+      %tbody
+        - @project_modules.each do |project_module|
+          %tr
+            %td= project_module.module_name
+            %td
+              = link_to "Edit", edit_project_project_module_path(@project, project_module), remote: true, "data-toggle": "modal", "data-target": "#moduleFormModal", class: "btn btn-primary"
+              = link_to "Show", project_project_module_path(@project, project_module), class: "btn btn-info"
+              = link_to "Destroy", project_project_module_path(@project, project_module), method: :delete, class: "btn btn-danger"

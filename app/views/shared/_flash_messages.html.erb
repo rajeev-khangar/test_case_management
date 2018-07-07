@@ -1,0 +1,11 @@
+<span class="error_msgs">
+<% flash.each do |type, message| %>
+  <div class="alert <%= bootstrap_class_for(type) %>">
+    <button class="close" data-dismiss="alert">×</button>
+    <%= message.html_safe %>
+  </div>
+<% end %>
+</span>
+<script>
+    setTimeout("$('.error_msgs').fadeOut('slow')", 2000)
+</script>

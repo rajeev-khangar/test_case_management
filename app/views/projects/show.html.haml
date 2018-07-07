@@ -1,0 +1,10 @@
+#projectTitle
+  = render "title"
+%br
+#milestoneList
+  = render "milestones/index"
+#moduleList
+  = render "project_modules/index"
+#projectFormModal.modal.inmodal{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+#milestoneFormModal.modal.inmodal{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+#moduleFormModal.modal.inmodal{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}

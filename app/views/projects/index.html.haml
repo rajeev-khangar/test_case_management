@@ -1,0 +1,11 @@
+.row
+  .col-md-12.text-right
+    = link_to "New Project", new_project_path, remote: true, "data-toggle": "modal", "data-target": "#projectFormModal", class: "btn btn-success"
+.row
+  .col-md-12
+    %h2 Projects
+
+#projectList
+  = render "index"
+#projectFormModal.modal.inmodal{"aria-hidden" => "true", :role => "dialog", :tabindex => "-1"}
+      

@@ -1,0 +1,5 @@
+.row
+  .col-md-4
+    = select_tag "project_module_id", options_from_collection_for_select(@project_modules, "id", "module_name"), id: "moduleSelect", class: "form-control", include_blank: "Select Module", data: {milestoneId: @milestone.id}
+#milestoneCaseForm
+  = render "milestone_cases/form"

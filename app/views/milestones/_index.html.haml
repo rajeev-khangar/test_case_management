@@ -1,0 +1,27 @@
+.row
+  .col-md-8
+    %h4 Milestones List
+  .col-md-4.text-right
+    = link_to "New Milestone", new_project_milestone_path(@project), remote: true, "data-toggle": "modal", "data-target": "#milestoneFormModal", class: "btn btn-success"
+%br
+.row
+  .col-md-12
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th Name
+          %th Start Date
+          %th End Date
+          %th Status
+          %th Actions
+      %tbody
+        - @milestones.each do |milestone|
+          %tr
+            %td= milestone.name
+            %td= milestone.start_date
+            %td= milestone.end_date
+            %td= milestone.status_by_date
+            %td
+              = link_to "Edit", edit_project_milestone_path(@project, milestone), remote: true, "data-toggle": "modal", "data-target": "#milestoneFormModal", class: "btn btn-primary"
+              = link_to "Show", project_milestone_path(@project, milestone), class: "btn btn-info"
+              = link_to "Destroy", project_milestone_path(@project, milestone), method: :delete, class: "btn btn-danger"

@@ -1,0 +1,22 @@
+.row
+  .col-md-8
+    %h4 Module Test Cases
+  .col-md-4.text-right
+    = link_to "New module", new_project_module_module_test_case_path(@project_module), class: "btn btn-success"
+%br
+.row
+  .col-md-12
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th Title
+          %th Description
+          %th Actions
+      %tbody
+        - @module_test_cases.each do |module_test_case|
+          %tr
+            %td= module_test_case.title
+            %td= module_test_case.description
+            %td
+              = link_to "Edit", edit_project_module_module_test_case_path(@project_module, module_test_case), class: "btn btn-primary"
+              = link_to "Destroy", project_module_module_test_case_path(@project_module, module_test_case), method: :delete, class: "btn btn-danger"
