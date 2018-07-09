@@ -13,6 +13,7 @@
           %th Start Date
           %th End Date
           %th Status
+          %th Progress Bar
           %th Actions
       %tbody
         - @milestones.each do |milestone|
@@ -21,6 +22,12 @@
             %td= milestone.start_date
             %td= milestone.end_date
             %td= milestone.status_by_date
+            %td
+              .progress
+                = simple_progress_bar milestone.failes_cases, alternative: 'danger'
+                = simple_progress_bar milestone.not_tested_cases, alternative: 'warning'
+                = simple_progress_bar milestone.successive_cases, alternative: 'success'
+
             %td
               = link_to "Edit", edit_project_milestone_path(@project, milestone), remote: true, "data-toggle": "modal", "data-target": "#milestoneFormModal", class: "btn btn-primary"
               = link_to "Show", project_milestone_path(@project, milestone), class: "btn btn-info"

@@ -1,0 +1,11 @@
+.progress-bar-danger{
+  background-color: #dc3545!important;
+}
+
+.progress-bar-success{
+  background-color: #28a745!important;
+}
+
+.progress-bar-warning{
+  background-color: #ffc107!important;
+}
